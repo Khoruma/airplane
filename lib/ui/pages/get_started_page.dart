@@ -9,10 +9,11 @@ class GetStartedPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            width: double.infinity,
             height: double.infinity,
+            width: double.infinity,
             decoration: const BoxDecoration(
               image: DecorationImage(
+                fit: BoxFit.cover,
                 image: AssetImage('assets/image_splash.png'),
               ),
             ),

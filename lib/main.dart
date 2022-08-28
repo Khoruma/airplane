@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplahPage(),
         '/get-started': (context) => const GetStartedPage(),
         '/sign-up': (context) => const SignUpPage(),
+        '/bonus': (context) => const BonusPage(),
       },
     );
   }

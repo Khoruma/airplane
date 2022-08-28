@@ -51,7 +51,7 @@ class SignUpPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Email Address'),
+              const Text('Your email Address'),
               const SizedBox(height: 6),
               TextFormField(
                 cursorColor: kBlackColor,
@@ -77,13 +77,13 @@ class SignUpPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Password'),
+              const Text('Your password'),
               const SizedBox(height: 6),
               TextFormField(
                 obscureText: true,
                 cursorColor: kBlackColor,
                 decoration: InputDecoration(
-                  hintText: 'Password',
+                  hintText: 'Your password',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(defaultRadius),
                   ),
@@ -109,7 +109,7 @@ class SignUpPage extends StatelessWidget {
               TextFormField(
                 cursorColor: kBlackColor,
                 decoration: InputDecoration(
-                  hintText: 'Hobby',
+                  hintText: 'Your hobby',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(defaultRadius),
                   ),
@@ -128,7 +128,7 @@ class SignUpPage extends StatelessWidget {
         return Container(
           width: double.infinity,
           height: 55,
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: TextButton(
             style: TextButton.styleFrom(
               backgroundColor: kPrimayColor,
@@ -136,7 +136,9 @@ class SignUpPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(defaultRadius),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/bonus');
+            },
             child: Text(
               'Get Started',
               style: whiteTextStyle.copyWith(
@@ -195,13 +197,9 @@ class SignUpPage extends StatelessWidget {
             horizontal: defaultMargin,
           ),
           children: [
-            Column(
-              children: [
-                title(),
-                inputSection(),
-                tacButton(),
-              ],
-            ),
+            title(),
+            inputSection(),
+            tacButton(),
           ],
         ),
       ),
