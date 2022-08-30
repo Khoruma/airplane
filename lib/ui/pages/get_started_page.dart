@@ -38,29 +38,13 @@ class GetStartedPage extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Container(
-                  height: 55,
-                  width: 220,
-                  margin: const EdgeInsets.only(top: 50, bottom: 80),
-                  child: TextButton(
+                CustomButton(
+                    title: 'Get Started',
+                    width: 220,
+                    margin: const EdgeInsets.only(top: 30, bottom: 80),
                     onPressed: () {
                       Navigator.pushNamed(context, '/sign-up');
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: kPrimayColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(defaultRadius),
-                      ),
-                    ),
-                    child: Text(
-                      'Get Started',
-                      style: whiteTextStyle.copyWith(
-                        fontSize: 18,
-                        fontWeight: medium,
-                      ),
-                    ),
-                  ),
-                )
+                    })
               ],
             ),
           )

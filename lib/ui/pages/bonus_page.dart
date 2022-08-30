@@ -114,28 +114,14 @@ class BonusPage extends StatelessWidget {
       );
     }
 
-    Widget starButton() {
-      return Container(
-        height: 55,
-        width: 220,
-        margin: const EdgeInsets.only(top: 50),
-        child: TextButton(
-          onPressed: () {},
-          style: TextButton.styleFrom(
-            backgroundColor: kPrimayColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(defaultRadius),
-            ),
-          ),
-          child: Text(
-            'Start Fly Now',
-            style: whiteTextStyle.copyWith(
-              fontSize: 18,
-              fontWeight: medium,
-            ),
-          ),
-        ),
-      );
+    Widget startButton() {
+      return CustomButton(
+          title: 'Start Fly Now',
+          width: 220,
+          margin: const EdgeInsets.only(top: 50),
+          onPressed: () {
+            Navigator.pushNamed(context, '/main');
+          });
     }
 
     return Scaffold(
@@ -147,7 +133,7 @@ class BonusPage extends StatelessWidget {
             card(),
             title(),
             subtitle(),
-            starButton(),
+            startButton(),
           ],
         ),
       ),

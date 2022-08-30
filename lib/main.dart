@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         '/get-started': (context) => const GetStartedPage(),
         '/sign-up': (context) => const SignUpPage(),
         '/bonus': (context) => const BonusPage(),
+        '/main': (context) => const MainPage(),
       },
     );
   }

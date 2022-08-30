@@ -125,29 +125,12 @@ class SignUpPage extends StatelessWidget {
       }
 
       Widget submitButton() {
-        return Container(
-          width: double.infinity,
-          height: 55,
-          decoration: const BoxDecoration(),
-          child: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: kPrimayColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(defaultRadius),
-              ),
-            ),
+        return CustomButton(
+            title: 'Get Started',
+            width: double.infinity,
             onPressed: () {
               Navigator.pushNamed(context, '/bonus');
-            },
-            child: Text(
-              'Get Started',
-              style: whiteTextStyle.copyWith(
-                fontSize: 18,
-                fontWeight: medium,
-              ),
-            ),
-          ),
-        );
+            });
       }
 
       return Container(
