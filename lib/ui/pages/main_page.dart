@@ -5,6 +5,10 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    buildContent() {
+      return const HomePage();
+    }
+
     Widget customBottonNavigation() {
       return Align(
         alignment: Alignment.bottomCenter,
@@ -49,6 +53,7 @@ class MainPage extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       body: Stack(
         children: [
+          buildContent(),
           customBottonNavigation(),
         ],
       ),
