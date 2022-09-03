@@ -10,3 +10,4 @@ part 'sign_up_page.dart';
 part 'bonus_page.dart';
 part 'main_page.dart';
 part 'home_page.dart';
+part 'detail_page.dart';
