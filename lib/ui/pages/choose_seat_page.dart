@@ -165,24 +165,235 @@ class ChooseSeatPage extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(top: 16),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SeatItem(),
-                  SeatItem(),
+                  SeatItem(
+                    status: 0,
+                  ),
+                  SeatItem(
+                    status: 0,
+                  ),
                   Container(
                     width: 48,
                     height: 48,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadiusDirectional.circular(18),
-                      color: kUnavailableColor,
+                    child: Center(
+                      child: Text(
+                        '1',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: regular,
+                        ),
+                      ),
                     ),
                   ),
-                  SeatItem(),
-                  SeatItem(),
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 0,
+                  ),
+                ],
+              ),
+            ),
+
+            //* SEAT 2
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 1,
+                  ),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '2',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: regular,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 0,
+                  ),
+                ],
+              ),
+            ),
+
+            //* SEAT 3
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(
+                    status: 2,
+                  ),
+                  SeatItem(
+                    status: 2,
+                  ),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '3',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: regular,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 1,
+                  ),
+                ],
+              ),
+            ),
+
+            //* SEAT 4
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 0,
+                  ),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '4',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: regular,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 1,
+                  ),
+                ],
+              ),
+            ),
+
+            //* SEAT 5
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 1,
+                  ),
+                  Container(
+                    width: 48,
+                    height: 48,
+                    child: Center(
+                      child: Text(
+                        '5',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: regular,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SeatItem(
+                    status: 0,
+                  ),
+                  SeatItem(
+                    status: 1,
+                  ),
+                ],
+              ),
+            ),
+
+            //* YOUR SEAT
+            Container(
+              margin: const EdgeInsets.only(top: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Your seat',
+                    style: greyTextStyle.copyWith(
+                      fontSize: 14,
+                      fontWeight: light,
+                    ),
+                  ),
+                  Text(
+                    'A3, B3',
+                    style: blackTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: medium,
+                    ),
+                  )
+                ],
+              ),
+            ),
+
+            //* TOTAL
+            Container(
+              margin: const EdgeInsets.only(top: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Total',
+                    style: greyTextStyle.copyWith(
+                      fontSize: 14,
+                      fontWeight: light,
+                    ),
+                  ),
+                  Text(
+                    'IDR 540.000.000',
+                    style: purpleTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: medium,
+                    ),
+                  )
                 ],
               ),
             )
           ],
         ),
+      );
+    }
+
+    Widget checkoutButton() {
+      return CustomButton(
+        margin: const EdgeInsets.only(top: 30, bottom: 46),
+        title: 'Continue to Chechout',
+        onPressed: () {},
+        width: double.infinity,
       );
     }
 
@@ -194,6 +405,7 @@ class ChooseSeatPage extends StatelessWidget {
           title(),
           seasStatus(),
           selectSeat(),
+          checkoutButton(),
         ],
       ),
     );
