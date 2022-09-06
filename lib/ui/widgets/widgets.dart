@@ -10,3 +10,4 @@ part 'destination_tile.dart';
 part 'photo_item.dart';
 part 'interest_item.dart';
 part 'seat_itemd.dart';
+part 'booking_details_item.dart';
