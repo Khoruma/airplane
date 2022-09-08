@@ -5,8 +5,19 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    buildContent() {
-      return const HomePage();
+    buildContent(int currentIndex) {
+      switch (currentIndex) {
+        case 0:
+          return HomePage();
+        case 1:
+          return TransactionPage();
+        case 2:
+          return WalletPage();
+        case 3:
+          return SettingPage();
+        default:
+          return const HomePage();
+      }
     }
 
     Widget customBottonNavigation() {
@@ -26,22 +37,22 @@ class MainPage extends StatelessWidget {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
+            children:  [
               CustomBottomNavigationItems(
+                index: 0,
                 imageUrl: 'assets/icon_home.png',
-                isActive: true,
               ),
               CustomBottomNavigationItems(
+                index: 1,
                 imageUrl: 'assets/icon_booking.png',
-                isActive: false,
               ),
               CustomBottomNavigationItems(
+                index: 2,
                 imageUrl: 'assets/icon_card.png',
-                isActive: false,
               ),
               CustomBottomNavigationItems(
+                index: 3,
                 imageUrl: 'assets/icon_settings.png',
-                isActive: false,
               ),
             ],
           ),
@@ -49,14 +60,16 @@ class MainPage extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: Stack(
-        children: [
-          buildContent(),
-          customBottonNavigation(),
-        ],
-      ),
-    );
+    return BlocBuilder<PageCubit, int>(builder: (context, currentIndex) {
+      return Scaffold(
+        backgroundColor: kBackgroundColor,
+        body: Stack(
+          children: [
+            buildContent(currentIndex),
+            customBottonNavigation(),
+          ],
+        ),
+      );
+    });
   }
 }
