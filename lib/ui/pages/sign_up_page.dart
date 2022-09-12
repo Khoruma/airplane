@@ -1,7 +1,12 @@
 part of 'pages.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  SignUpPage({Key? key}) : super(key: key);
+
+  final TextEditingController passwordController = TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: '');
+  final TextEditingController nameController = TextEditingController(text: '');
+  final TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -20,41 +25,71 @@ class SignUpPage extends StatelessWidget {
 
     Widget inputSection() {
       Widget fullNameInput() {
-        return const CustomTextFromField(
+        return CustomTextFromField(
           title: 'Full Name',
           hintText: 'Your full name',
+          controller: nameController,
         );
       }
 
       Widget emailInput() {
-        return const CustomTextFromField(
-          title: 'Full Name',
+        return CustomTextFromField(
+          title: 'Email Address',
           hintText: 'Your full name',
+          controller: emailController,
         );
       }
 
       Widget passwordInput() {
-        return const CustomTextFromField(
-          title: 'Email Address',
+        return CustomTextFromField(
+          title: 'Password',
           hintText: 'Your email address',
           obscureText: true,
+          controller: passwordController,
         );
       }
 
       Widget hobbyInput() {
-        return const CustomTextFromField(
+        return CustomTextFromField(
           title: 'Hobby',
           hintText: 'Your hobby',
+          controller: hobbyController,
         );
       }
 
       Widget submitButton() {
-        return CustomButton(
-            title: 'Get Started',
-            width: double.infinity,
-            onPressed: () {
-              Navigator.pushNamed(context, '/bonus');
-            });
+        return BlocConsumer<AuthCubit, AuthState>(
+          listener: (context, state) {
+            if (state is AuthSuccess) {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/bonus', (route) => false);
+            } else if (state is AuthFailed) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: kRedColor,
+                  content: Text(state.error),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is AuthLoading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return CustomButton(
+                title: 'Get Started',
+                width: double.infinity,
+                onPressed: () {
+                  context.read<AuthCubit>().signUp(
+                      email: emailController.text,
+                      password: passwordController.text,
+                      name: nameController.text,
+                      hobby: hobbyController.text);
+                });
+          },
+        );
       }
 
       return Container(

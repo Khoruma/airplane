@@ -1,10 +1,15 @@
+import 'package:airplane/cubit/auth_cubit.dart';
 import 'package:airplane/cubit/page_cubit.dart';
 import 'package:airplane/ui/pages/pages.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,15 +23,18 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => PageCubit(),
         ),
+        BlocProvider(
+          create: (context) => AuthCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => const SplahPage(),
-          '/get-started': (context) => const GetStartedPage(),
-          '/sign-up': (context) => const SignUpPage(),
-          '/bonus': (context) => const BonusPage(),
-          '/main': (context) => const MainPage(),
+          '/': (context) => SplahPage(),
+          '/get-started': (context) => GetStartedPage(),
+          '/sign-up': (context) => SignUpPage(),
+          '/bonus': (context) => BonusPage(),
+          '/main': (context) => MainPage(),
         },
       ),
     );

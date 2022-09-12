@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "914716697955",
+    "project_id": "airplane-63450",
+    "storage_bucket": "airplane-63450.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914716697955:android:631d215f24de5e186ddf56",
+        "android_client_info": {
+          "package_name": "com.flyline.airplane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914716697955-qj1j0sc4g6pri5i18tgr6u74hbrf77jl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWyQ2E3OdzN3LwvOtLdbX00kqyD4R3Ah0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914716697955-qj1j0sc4g6pri5i18tgr6u74hbrf77jl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

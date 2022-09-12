@@ -37,7 +37,7 @@ class MainPage extends StatelessWidget {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children:  [
+            children: [
               CustomBottomNavigationItems(
                 index: 0,
                 imageUrl: 'assets/icon_home.png',
@@ -60,16 +60,18 @@ class MainPage extends StatelessWidget {
       );
     }
 
-    return BlocBuilder<PageCubit, int>(builder: (context, currentIndex) {
-      return Scaffold(
-        backgroundColor: kBackgroundColor,
-        body: Stack(
-          children: [
-            buildContent(currentIndex),
-            customBottonNavigation(),
-          ],
-        ),
-      );
-    });
+    return BlocBuilder<PageCubit, int>(
+      builder: (context, currentIndex) {
+        return Scaffold(
+          backgroundColor: kBackgroundColor,
+          body: Stack(
+            children: [
+              buildContent(currentIndex),
+              customBottonNavigation(),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
