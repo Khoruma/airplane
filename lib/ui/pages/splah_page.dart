@@ -17,6 +17,7 @@ class _SplahPageState extends State<SplahPage> {
         Navigator.pushNamedAndRemoveUntil(
             context, '/get-started', (route) => false);
       } else {
+        context.read<AuthCubit>().getCurrent(user.uid);
         Navigator.pushNamedAndRemoveUntil(context, '/main', (route) => false);
       }
     });

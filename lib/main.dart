@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => SplahPage(),
           '/get-started': (context) => GetStartedPage(),
           '/sign-up': (context) => SignUpPage(),
+          '/sign-in': (context) => SignInPage(),
           '/bonus': (context) => BonusPage(),
           '/main': (context) => MainPage(),
         },

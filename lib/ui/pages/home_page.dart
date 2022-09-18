@@ -6,49 +6,57 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget header() {
-      return Container(
-        margin: EdgeInsets.only(
-          right: defaultMargin,
-          left: defaultMargin,
-          top: 30,
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      return BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          if (state is AuthSuccess) {
+            return Container(
+              margin: EdgeInsets.only(
+                right: defaultMargin,
+                left: defaultMargin,
+                top: 30,
+              ),
+              child: Row(
                 children: [
-                  Text(
-                    'Howdy,\nKezia Anne',
-                    style: blackTextStyle.copyWith(
-                      fontSize: 24,
-                      fontWeight: semiBold,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Howdy,\n${state.user.name}',
+                          style: blackTextStyle.copyWith(
+                            fontSize: 24,
+                            fontWeight: semiBold,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          'Where to fly today?',
+                          style: greyTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: light,
+                          ),
+                        ),
+                      ],
                     ),
-                    overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 6),
-                  Text(
-                    'Where to fly today?',
-                    style: greyTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: light,
+                  Container(
+                    height: 60,
+                    width: 60,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('assets/icon_profile.png'),
+                      ),
                     ),
-                  ),
+                  )
                 ],
               ),
-            ),
-            Container(
-              height: 60,
-              width: 60,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage('assets/icon_profile.png'),
-                ),
-              ),
-            )
-          ],
-        ),
+            );
+          } else {
+            return const SizedBox();
+          }
+        },
       );
     }
 
