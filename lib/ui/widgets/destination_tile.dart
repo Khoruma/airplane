@@ -1,17 +1,11 @@
 part of 'widgets.dart';
 
 class DestinationTile extends StatelessWidget {
-  final String name;
-  final String city;
-  final double rating;
-  final String imageUrl;
+  final DestinationModel destination;
 
-  const DestinationTile({
+  const DestinationTile(
+    this.destination, {
     Key? key,
-    required this.name,
-    required this.city,
-    this.rating = 0.0,
-    required this.imageUrl,
   }) : super(key: key);
 
   @override
@@ -21,7 +15,7 @@ class DestinationTile extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const DetailPage(),
+              builder: (context) => DetailPage(destination),
             ));
       },
       child: Container(
@@ -42,8 +36,8 @@ class DestinationTile extends StatelessWidget {
               decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage(
-                      imageUrl,
+                    image: NetworkImage(
+                      destination.imageUrl,
                     ),
                   ),
                   borderRadius: BorderRadius.circular(18)),
@@ -54,7 +48,7 @@ class DestinationTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    destination.name,
                     style: blackTextStyle.copyWith(
                       fontSize: 18,
                       fontWeight: medium,
@@ -62,7 +56,7 @@ class DestinationTile extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    city,
+                    destination.city,
                     style: greyTextStyle.copyWith(
                       fontSize: 15,
                       fontWeight: light,
@@ -84,7 +78,7 @@ class DestinationTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  rating.toString(),
+                  destination.rating.toString(),
                   style: blackTextStyle.copyWith(
                     fontSize: 14,
                     fontWeight: medium,

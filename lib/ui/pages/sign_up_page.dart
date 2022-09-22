@@ -35,7 +35,7 @@ class SignUpPage extends StatelessWidget {
       Widget emailInput() {
         return CustomTextFromField(
           title: 'Email Address',
-          hintText: 'Your full name',
+          hintText: 'Your email address',
           controller: emailController,
         );
       }
@@ -43,7 +43,7 @@ class SignUpPage extends StatelessWidget {
       Widget passwordInput() {
         return CustomTextFromField(
           title: 'Password',
-          hintText: 'Your email address',
+          hintText: 'Your password',
           obscureText: true,
           controller: passwordController,
         );

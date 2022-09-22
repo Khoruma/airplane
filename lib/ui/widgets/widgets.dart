@@ -1,4 +1,5 @@
 import 'package:airplane/cubit/page_cubit.dart';
+import 'package:airplane/models/models.dart';
 import 'package:airplane/shared/shared.dart';
 import 'package:airplane/ui/pages/pages.dart';
 import 'package:flutter/material.dart';
