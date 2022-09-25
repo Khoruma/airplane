@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:airplane/cubit/auth_cubit.dart';
 import 'package:airplane/cubit/destination_cubit.dart';
 import 'package:airplane/cubit/page_cubit.dart';
+import 'package:airplane/cubit/seat_cubit.dart';
 import 'package:airplane/models/models.dart';
 import 'package:airplane/shared/shared.dart';
 import 'package:airplane/ui/widgets/widgets.dart';

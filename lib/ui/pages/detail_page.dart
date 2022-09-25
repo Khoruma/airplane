@@ -209,10 +209,10 @@ class DetailPage extends StatelessWidget {
                       children: [
                         Text(
                           NumberFormat.currency(
-                                  locale: 'id',
-                                  symbol: 'IDR ',
-                                  decimalDigits: 0)
-                              .format(destination.price),
+                            locale: 'id',
+                            symbol: 'IDR ',
+                            decimalDigits: 0,
+                          ).format(destination.price),
                           style: blackTextStyle.copyWith(
                             fontSize: 18,
                             fontWeight: medium,
@@ -235,7 +235,7 @@ class DetailPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ChooseSeatPage(),
+                            builder: (context) => ChooseSeatPage(destination),
                           ));
                     },
                     width: 170,
