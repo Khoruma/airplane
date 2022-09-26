@@ -397,17 +397,33 @@ class ChooseSeatPage extends StatelessWidget {
     }
 
     Widget checkoutButton() {
-      return CustomButton(
-        margin: const EdgeInsets.only(top: 30, bottom: 46),
-        title: 'Continue to Chechout',
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const CheckoutPage(),
-              ));
+      return BlocBuilder<SeatCubit, List<String>>(
+        builder: (context, state) {
+          return CustomButton(
+            margin: const EdgeInsets.only(top: 30, bottom: 46),
+            title: 'Continue to Chechout',
+            onPressed: () {
+              int price = destination.price * state.length;
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CheckoutPage(
+                      TransactionModel(
+                        destination: destination,
+                        amoutOfTraveller: state.length,
+                        selectedSeats: state.join(', '),
+                        insurance: true,
+                        refundable: false,
+                        vat: 0.45,
+                        price: price,
+                        gradTotal: price + (price * 0.45).toInt(),
+                      ),
+                    ),
+                  ));
+            },
+            width: double.infinity,
+          );
         },
-        width: double.infinity,
       );
     }
 

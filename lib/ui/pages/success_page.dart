@@ -14,7 +14,7 @@ class SuccessPage extends StatelessWidget {
             Container(
               height: 150,
               width: 300,
-              margin: const EdgeInsets.only(bottom: 80), 
+              margin: const EdgeInsets.only(bottom: 80),
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/icon_success.png'),
@@ -42,6 +42,7 @@ class SuccessPage extends StatelessWidget {
               width: 220,
               title: 'My Bookings',
               onPressed: () {
+                context.read<PageCubit>().setPage(1);
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/main', (route) => false);
               },
